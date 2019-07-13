@@ -32,6 +32,11 @@ Make sure if any wildcard is being used put that as as string, else command prom
 # Exclude folders
 Depending on type of folder, if its JS 'nodel_module' will be geenrated folder on local similary if its python app, environment folder will be generated. in order to exclude those folders, define the folder names as last argument
 Leave as empty if no folder is to be left.
+In order to add more then one folder put as a comma seperated string e.g,
+'test_folder, main_folder'
 
-Running example
-python main.py ./ TODO '*.py' [env]
+# Running examples
+python main.py ./ TODO '*.py' 'test_folder, main_folder'
+python main.py ./ TODO
+python main.py ./ TODO '*.py'
+python main.py ./ TODO '*.py' 'test_folder'
