@@ -9,26 +9,29 @@ python3
 # Install pip
 easy_install pip
 
-# Install Virtual Environment
+# Install Virtual Environment - Optional
 python3 -m pip install --user virtualenv
 
-# Create Virtual Environment
+# Create Virtual Environment - Optional
 python3 -m virtualenv env
 
-# Activate virtual Environment
+# Activate virtual Environment - Optional
 source env/bin/activate
 
-# Install requirements
+# Install requirements - Optional
 pip install -r requirement.txt
 
 # Run application using
-python main.py <path of folder> <String to be searched> <file extension> <exclude list>
+python main.py <path of folder> <String to be searched> <file extension to be checked for> <exclude dir list>
 
-# Changes to be made in order to use any extention
-findFileContent(folder_path, '*.js', search_string) // change '*.js' to any file extention format you have to validate
+# File extention
+file extension to be checked for can be any, likle '*.js' or *.py etc depending on type of folder syetem we are testing
+Leave empty if you don't want to exclude any filr type.
+Make sure if any wildcard is being used put that as as string, else command prompt will try to resolve the wildcard.
 
 # Exclude folders
-Depending on type of folder, if its JS nodel_module will be geenrated folder on local similary if its python app, environment folder will eb generated. in order to exclude those folders, define the folder names in below folder
-exclude = ['node_modules']
+Depending on type of folder, if its JS 'nodel_module' will be geenrated folder on local similary if its python app, environment folder will be generated. in order to exclude those folders, define the folder names as last argument
+Leave as empty if no folder is to be left.
 
-Leave as empty if no folder is to be left
+Running example
+python main.py ./ TODO '*.py' [env]
