@@ -19,6 +19,20 @@ class TestTODO(unittest.TestCase):
         expected_result = ['./test.py', './main.py', './test_folder/test_file.py', './main_folder/test_file.py']
         self.assertEqual(result, expected_result)
 
+    def test_for_case_insentive_params(self):
+        """
+        Test with all input params
+        python main.py ./ todo '*.py' 'env'
+        """
+        folder_path = "./"
+        search_string = "todo"
+        pattern = "*.py"
+        exclude = "env"
+
+        result = findFileContent(folder_path, search_string, pattern, exclude)
+        expected_result = ['./test.py', './main.py', './test_folder/test_file.py', './main_folder/test_file.py']
+        self.assertEqual(result, expected_result)
+
     def test_using_valid_exclude_params(self):
         """
         Test with all input params

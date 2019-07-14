@@ -1,4 +1,5 @@
 import sys, os
+import re
 from fnmatch import fnmatch
 
 #TODO - For Test cases
@@ -22,7 +23,8 @@ def findFileContent(folder_path, search_string, pattern, exclude):
             if fnmatch(name, pattern):
                 if os.path.isfile(os.path.join(path, name)):
                     f = open(os.path.join(path, name), 'r')
-                    if search_string in f.read():
+                    # Ignore case sensitivity
+                    if re.search(search_string, f.read(), re.IGNORECASE):
                         result.append(os.path.join(path, name))
                     f.close()
     return result
